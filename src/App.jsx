@@ -22,11 +22,14 @@ function App() {
 
     const timeDiff = midnight.getTime() - now.getTime();
 
+    const years = 0;
+    const months = 0;
+    const days = 0;
     const hours = Math.floor(timeDiff / (1000 * 60 * 60));
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-    return { hours, minutes, seconds };
+    return { years, months, days, hours, minutes, seconds };
   }
 
   return (
@@ -35,6 +38,8 @@ function App() {
         <span className='blah'></span>
         <span className='title'> Next Wordle in: </span>
         {time ? <div className='timer'>
+          {time.years} yrs : {time.months} mnths : {time.days} days
+          <br></br>
           {time.hours} hrs : {time.minutes} mins : {time.seconds} secs
         </div> : <span className='timer'>Getting your time...</span>}
         <button onClick={() => setTruth(!truth)}>TRUTH</button>
