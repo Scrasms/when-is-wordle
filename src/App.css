@@ -24,3 +24,38 @@
   font-size: 6vw;
   color: rgb(108, 169, 101);
 }
+
+.truth-image {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.truth-text {
+  position: absolute;
+  width: 200px;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 2vw;
+  margin-top: 4vh;
+  background-color: rgb(120,124,127);
+  color: rgb(200,182,83);
+  outline-style: none;
+}
+
+button:hover {
+  background-color: rgb(114, 117, 121);
+}
+
+button:active {
+  background-color: rgb(98, 101, 105);
+}
