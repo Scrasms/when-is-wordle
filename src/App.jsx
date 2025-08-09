@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import wordle_trauma from './assets/wordle-trauma.png';
+import shenrong from './assets/shenrong.png';
 import truth_text from './assets/truth.txt?raw';
 import './App.css';
 
 function App() {
   const [time, setTime] = useState();
-  const [truth, setTruth] = useState();
+  const [truth, setTruth] = useState(false);
+  const [evan, setEvan] = useState(false);
 
    useEffect(() => {
-      const interval = setInterval(() => {
+      setInterval(() => {
         setTime(getTimeToMidnight());
       }, 1000);
    }, [])
@@ -42,16 +44,18 @@ function App() {
           <br></br>
           {time.hours} hrs : {time.minutes} mins : {time.seconds} secs
         </div> : <span className='timer'>Getting your time...</span>}
-        <button onClick={() => setTruth(!truth)}>TRUTH</button>
-
-        <div className='truth'>
-          {truth ? <img className='truth-image' src={wordle_trauma}/>
-          : null}
-          {truth ? <div className='truth-text'>
-            {truth_text}
-          </div>
-          : null}
+        <div className='buttons-container'>
+          <button onClick={() => setEvan(!evan)}>EVAN</button>
+          <button onClick={() => setTruth(!truth)}>TRUTH</button>
         </div>
+
+        {truth ? <img className='truth-image' src={wordle_trauma}/> : null}
+        {truth ? <div className='truth-text'>
+          {truth_text}
+        </div>
+        : null}
+
+        {evan ? <img className='evan-image' src={shenrong} onClick={() => setEvan(!evan)}/> : null}
       </div>
     </>
   )
